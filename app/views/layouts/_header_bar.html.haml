@@ -9,22 +9,21 @@
     %form.navbar-form.navbar-left
       %input.form-control.col-lg-8{:placeholder => "Search", :type => "text"}/
     %ul.nav.navbar-nav.navbar-right
-      %li
-        %a{:href => "javascript:void(0)"} Link
-      %li.dropdown
-        %a.dropdown-toggle{"data-target" => "#", "data-toggle" => "dropdown", :href => "bootstrap-elements.html"}
-          Options
-        %ul.dropdown-menu
-          %li
-            %a{:href => "javascript:void(0)"} Action
-          %li
-            %a{:href => "javascript:void(0)"} Another action
-          %li
-            %a{:href => "javascript:void(0)"} Something else here
-          %li.divider
-          - if current_user.present?
-            - if current_user.is_admin
-              %li= link_to "Admin", destroy_user_session_path,:method => :delete
-            %li= link_to "Sign Out", destroy_user_session_path,:method => :delete
-          - else
-            %li= link_to "Sign In", new_user_session_path
+      - if current_user.present?
+        %li.dropdown
+          %a.dropdown-toggle{"data-target" => "#", "data-toggle" => "dropdown", :href => "bootstrap-elements.html"}
+            Options
+          %ul.dropdown-menu
+            %li
+              %a{:href => "javascript:void(0)"} Action
+            %li
+              %a{:href => "javascript:void(0)"} Another action
+            %li
+              %a{:href => "javascript:void(0)"} Profile
+            %li.divider
+              - if current_user.is_admin
+                %li= link_to "Admin", destroy_user_session_path,:method => :delete
+              %li= link_to "Sign Out", destroy_user_session_path,:method => :delete
+      - else
+        %li
+          %a{:href => "javascript:void(0)"} Link

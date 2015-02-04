@@ -1,4 +1,35 @@
+:javascript
+  function getLocation() {
+      if (navigator.geolocation) {
+        navigator.geolocation.getCurrentPosition(showPosition);
+      }
+      
+  }
+  function showPosition(position) {
+      var x = document.getElementById("geoloc");
+      data = "Latitude: " + position.coords.latitude + 
+      "<br>Longitude: " + position.coords.longitude; 
+      console.log(data);
+      $.ajax({
+        url: "http://maps.googleapis.com/maps/api/geocode/json",
+        data: {latlng: position.coords.latitude+","+position.coords.longitude},
+        success: function(data){
+          address = data.results[0].formatted_address;
+          x.innerHTML = address;
+        },
+        error: function(data){
+          console.log(data);
+          x.innerHTML = "Failed to load address..."
+        },
+        dataType: "json",
+      });
+      
+  }
+  $(document).ready(function(){
+    getLocation();
+  });
 .row
   .col-md-12
     %h1 Home#index
-    %p Find me in app/views/home/index.html.erb
+    %p#geoloc Detecting your geo location...
+  

@@ -1,0 +1,37 @@
+!!!
+%html
+  %head
+    %meta{:content => "text/html; charset=UTF-8", "http-equiv" => "Content-Type"}/
+    %link{:href => "//maxcdn.bootstrapcdn.com/bootstrap/3.2.0/css/bootstrap.min.css", :rel => "stylesheet"}/
+    = stylesheet_link_tag    'application', media: 'all', 'data-turbolinks-track' => true
+    = javascript_include_tag 'application', 'data-turbolinks-track' => true
+    = csrf_meta_tags
+  %body
+    = render :partial => "layouts/header_bar"
+    / Your site
+    .container
+      .row
+        .col-sm-6.col-md-12
+          - if flash[:notice]
+            %button.close{"data-dismiss" => "alert", :type => "button"} ×
+            .alert.alert-dismissable.alert-info
+              %h4 Notice
+              %p= notice
+          - if flash[:alert]
+            %button.close{"data-dismiss" => "alert", :type => "button"} ×
+            .alert.alert-dismissable.alert-danger
+              %h4 Warning
+              %p= alert
+      .row
+        .col-md-12
+          = yield
+    / Your site ends
+    %script{:src => "//code.jquery.com/jquery-1.10.2.min.js"}
+    %script{:src => "//maxcdn.bootstrapcdn.com/bootstrap/3.2.0/js/bootstrap.min.js"}
+    %script{:src => "//cdnjs.cloudflare.com/ajax/libs/bootstrap-material-design/0.2.2/js/material.js"}
+    %script{:src => "//cdnjs.cloudflare.com/ajax/libs/bootstrap-material-design/0.2.2/js/ripples.js"}
+    :javascript
+      $(document).ready(function() {
+          console.log("ready to go again");
+          $.material.init();
+      });
