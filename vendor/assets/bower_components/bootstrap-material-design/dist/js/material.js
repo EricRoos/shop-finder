@@ -1,5 +1,4 @@
 /* globals jQuery */
-
 (function($) {
   // Selector to select only not already processed elements
   $.expr[":"].notmdproc = function(obj){
@@ -18,7 +17,6 @@
     }
     return false;
   }
-
   $.material =  {
     "options": {
       // These options set what will be started by $.material.init()
@@ -218,5 +216,4 @@
       }
     }
   };
-
 })(jQuery);
