@@ -12,7 +12,7 @@ require 'mina/rvm'    # for rvm support. (http://rvm.io)
 
 set :domain, 'eric_roos@130.211.143.43'
 set :deploy_to, '/var/www/rails_apps/shop_finder'
-set :repository, 'git@github.com:EricRoos/shop-finder.git'
+set :repository, 'https://github.com/EricRoos/shop-finder.git'
 set :branch, 'master'
 
 # Manually create these paths in shared/ (eg: shared/config/database.yml) in your server.
