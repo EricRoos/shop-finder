@@ -7,6 +7,7 @@ gem 'bower-rails'
 gem 'therubyracer'
 gem 'haml'
 gem 'haml-rails'
+gem 'devise'
 # Use mysql as the database for Active Record
 gem 'mysql2'
 gem 'therubyracer'

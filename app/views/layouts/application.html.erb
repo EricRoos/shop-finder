@@ -11,16 +11,29 @@
     </head>
 
     <body>
-        <div class="container">
-          <div class="row">
-            <div class="col-md-12">
-              <%= render :partial => "layouts/header_bar" %>
-            </div>
-          </div>
-        </div>
+        <%= render :partial => "layouts/header_bar" %>
         <!-- Your site -->
 
         <div class="container">
+          <div class="row">
+            <div class="col-md-12">
+              <% if flash[:notice] %>
+                <button type="button" class="close" data-dismiss="alert">×</button>
+                <div class="alert alert-dismissable alert-info">
+                  <h4>Notice</h4>
+                  <p><%= notice %></p>
+                </div>
+              <% end %>
+
+              <% if flash[:alert] %>
+                <button type="button" class="close" data-dismiss="alert">×</button>
+                <div class="alert alert-dismissable alert-danger">
+                  <h4>Warning</h4>
+                  <p><%= alert %></p>
+                </div>
+              <% end %>
+            </div>
+          </div>
           <div class="row">
             <div class="col-md-12">
               <%= yield %>
