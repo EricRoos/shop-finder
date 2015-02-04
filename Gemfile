@@ -5,6 +5,8 @@ source 'https://rubygems.org'
 gem 'rails', '4.2.0'
 gem 'bower-rails'
 gem 'therubyracer'
+gem 'haml'
+gem 'haml-rails'
 # Use mysql as the database for Active Record
 gem 'mysql2'
 gem 'therubyracer'
