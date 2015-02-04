@@ -11,9 +11,22 @@
     </head>
 
     <body>
-        <%= render :partial => "layouts/header_bar" %>
+        <div class="container">
+          <div class="row">
+            <div class="col-md-12">
+              <%= render :partial => "layouts/header_bar" %>
+            </div>
+          </div>
+        </div>
         <!-- Your site -->
-        <%= yield %>
+
+        <div class="container">
+          <div class="row">
+            <div class="col-md-12">
+              <%= yield %>
+            </div>
+          </div>
+        </div>
         <!-- Your site ends -->
 
         <script src="//code.jquery.com/jquery-1.10.2.min.js"></script>
